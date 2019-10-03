@@ -1,0 +1,140 @@
+body {
+    background: url(../images/fon.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+#glaw{
+    display:inline;
+    width:880px;
+}
+.blok1, .blok2, .blok3, .blok4{
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+img.background {
+    min-height: 100%;
+    min-width: 640px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:0;}
+/* Зависит от размера изображения */
+
+.blok1{
+    margin:6px 3px 3px 3px;
+    background: #F0FCE8;
+    width:200px;
+    height:250px;
+    padding: 5px;
+    text-align: center;
+}
+.blok2{
+    margin:6px 3px 3px 3px;
+    background: #F0FCE8;
+    width:200px;
+    height:150px;
+    padding: 5px;
+    text-align: center;
+}
+.blok3{
+    margin:6px 3px 3px 3px;
+    background: #F0FCE8;
+    width:200px;
+    height:150px;
+    padding: 5px;
+    text-align: center;
+}
+
+.blok4{
+    float:left;
+    margin-top:-525px;
+    margin-left:230px;
+    background: #343a40;
+    width:300px;
+    height:480px;
+    padding: 5px;
+    text-align: center;
+    font-weight: 400;
+    position: fixed;
+    z-index: 1;
+
+}
+p1{
+    color: #fff;
+    font-size: 25px;
+    font-style: oblique;
+}
+button.knopka {
+    padding: 10px;
+    margin: 20px 0;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    background-color: #DA8119;
+    display: block;
+}
+button.knopka:hover {
+    background: #FF6347;
+}
+u {padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #343a40;
+    display:block;}
+@media (max-width: 1000px){
+    .blok4{
+        float:left;
+        margin-top:-525px;
+        margin-left:215px;
+        background: #343a40;
+        width:300px;
+        height:480px;
+        padding: 5px;
+        text-align: center;
+        font-weight: 400;
+        position: fixed;
+        z-index: 1;
+
+    }
+}
+@media (max-width: 800px){
+    .blok4{
+        float:left;
+        margin-top:-525px;
+        margin-left:200px;
+        background: #343a40;
+        width:300px;
+        height:480px;
+        padding: 5px;
+        text-align: center;
+        font-weight: 400;
+        position: fixed;
+        z-index: 1;
+
+    }
+}
+.button-block{
+    background: #343a40;
+    margin-top:125px;
+    height:300px;
+    z-index: 1;
+}
+.button-block-form{
+    margin-left:400px;
+    background: #343a40;
+    margin-top:-300px;
+    height:300px;
+    z-index: 1;
+}
+.form-block{
+    background: #343a40;
+    margin-top:125px;
+    height:300px;
+    padding: 15px;
+    display: none;
+}
+.form-block.show{
+    display: block;
+}
