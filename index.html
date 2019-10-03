@@ -53,10 +53,8 @@
         padding: 5px;
         text-align: center;
     }
-    row{
-        background: #343a40;
-    }
-    .blok4{
+
+       .blok4{
         float:left;
         margin-top:-525px;
         margin-left:230px;
@@ -125,6 +123,20 @@
 
         }
     }
+    .button-block{
+        margin-left:50px;
+        background: #343a40;
+        margin-top:125px;
+        height:300px;
+        z-index: 1;
+    }
+    .button-block-form{
+        margin-left:160px;
+        background: #343a40;
+        margin-top:10px;
+        height:300px;
+        z-index: 1;
+    }
 
 </style>
 <body>
@@ -143,18 +155,33 @@
       </div>
 
   </div>-->
-<div class="row">
-    <div class="col">1 из 3</div>
-    <div class="col-6">2 из 3 (широкое)</div>
-    <div class="col">3 из 3</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 button-block">hgfhg
+            <button class="knopka">Добавить пост</button>
+
+            <button class="knopka">Удалить пост</button>
+        </div>
+    </div>
+
 </div>
-<div class="row">
-    <div class="col">1 из 3</div>
-    <div class="col-5">2 из 3 (широкое)</div>
-    <div class="col">3 из 3</div>
+
+<div class="profile ">
 </div>
-   <script src="js/js/bootstrap.js"></script>
+<form role="form" id="contactForm" action="form.php">
+    <div class="row">
+        <div class="form-group col-sm-4 button-block-form">
+            <label for="name" class="h4">Добавление поста</label>
+            <input type="text" class="form-control" id="name" placeholder="Введите имя" required>
+            <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавление </button>
+        </div>
+    </div>
+</form>
+</div>
+
+
+   <script src="js/bootstrap.js"></script>
    <!-- Комментарий -->
-<!-- <img src="images/fon.jpg" class="background" /> -->
+ <img src="images/fon.jpg" class="background" />
 </body>
 </html>
