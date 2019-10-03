@@ -2,8 +2,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Первая HTML страница</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-grid.css" rel="stylesheet">
+    <link href="css/bootstrap-reboot.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 
 </head>
 <style>
@@ -49,6 +52,9 @@
         height:150px;
         padding: 5px;
         text-align: center;
+    }
+    row{
+        background: #343a40;
     }
     .blok4{
         float:left;
@@ -121,7 +127,7 @@
     }
 
 </style>
-</head>
+<body>
 <!--<div id="glaw">
    <div class="blok1">
        <h3>Добрый день!</h3>
@@ -137,24 +143,17 @@
       </div>
 
   </div>-->
-<div class = "col-md-3 col-md-pull-9">
-    <h2>Сайдбар</h2>
-    <ul class="list-group">
-        <li class="list-group-item">Автосалоны
-            <span class="badge">19</span>
-        </li>
-        <li class="list-group-item">Автомастерские
-            <span class="badge">178</span>
-        </li>
-        <li class="list-group-item">Ремонт
-        </li>
-        <li class="list-group-item">Объявления
-        </li>
-    </ul>
+<div class="row">
+    <div class="col">1 из 3</div>
+    <div class="col-6">2 из 3 (широкое)</div>
+    <div class="col">3 из 3</div>
 </div>
-
-   <script src="js/js/bootstrap.min.js"></script>
-   <script src="js/css/bootstrap.min.css"></script>
+<div class="row">
+    <div class="col">1 из 3</div>
+    <div class="col-5">2 из 3 (широкое)</div>
+    <div class="col">3 из 3</div>
+</div>
+   <script src="js/js/bootstrap.js"></script>
    <!-- Комментарий -->
 <!-- <img src="images/fon.jpg" class="background" /> -->
 </body>
