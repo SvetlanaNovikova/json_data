@@ -1,6 +1,7 @@
 body {
     background: url(../images/fon.jpg) no-repeat;
     background-size: 100% 100%;
+    min-height: 100vh;
 }
 #glaw{
     display:inline;

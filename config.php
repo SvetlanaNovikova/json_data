@@ -1,3 +1,3 @@
 <?php
-$domenId = 3;
-$url = 'http://pmigroup2.tmweb.ru/';
+$domenId = 2;
+$url = 'http://vulture-tm.ru:3000/';
