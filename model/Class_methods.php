@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 
-abstract class Class_methods
+class Class_methods
 {
     function Main($type, $data){
         switch($type){
