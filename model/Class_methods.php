@@ -15,7 +15,10 @@ class Class_methods
     function get_domains($method)
     {
         $result = file_get_contents(Configuration::$url.$method, false);
-        return $result;
+        if (!empty( $result["id"])){
+            return $result;
+        }
+        else return false;
     }
     /*создание нового домена*/
     function add_domains($data)
@@ -32,25 +35,86 @@ class Class_methods
     /*создание нового поста*/
     function add_post($data)
     {
-        //новое id поста (НУЖНО ПОМЕНЯТЬ, ТУТ ВОЗВРАЩАЕТСЯ ЛИМИТ)
-        $ch = curl_init(Configuration::$url.'domains/'.$data["id"].'/post/all');
-        //убрать все кроме цифр
-        $ch = preg_replace('~[^0-9]+~','',$ch);
-
         $data = array("title" => $data["title"],
             "content"=> $data["content"],
             "author"=> $data["author"],
             "excerpt"=> $data["excerpt"],
             "status"=> $data["status"],
-            "postParent"=> $data["id"],
-            "url"=> Configuration::$url.'domains/'.$data["id"].'/post/'.$ch,
-            "thumbnailUrl"=> $data["content"],
+            "postParent"=> $data["postParent"],
+            "url"=> $data["url"],
+            "thumbnailUrl"=> $data["thumbnailUrl"],
             "postType"=> $data["postType"]);
 
         $data_string = json_encode($data);
-        $rezult = $this->post_execute($data_string, 'domains/'.$data["id"].'/post');
+        $rezult = $this->post_execute($data_string, 'domains/'.Configuration::$domenId.'/post');
         if (!empty( $rezult["id"])){
+            return $rezult;
+        }
+        else return false;
+    }
+
+    function get_post($post_id)
+    {
+        $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/'.$post_id, false);
+        if (!empty( $result["id"])){
+            return $result;
+        }
+        else return false;
+    }
+
+    function update_post($data, $post_id)
+    {
+        $data_string = [];
+        if (!empty($data["title"]))
+            $data_string["title"] = $data["title"];
+        if (!empty($data["content"]))
+            $data_string["content"] = $data["content"];
+        if (!empty($data["author"]))
+            $data_string["author"] = $data["author"];
+        if (!empty($data["excerpt"]))
+            $data_string["excerpt"] = $data["excerpt"];
+        if (!empty($data["status"]))
+            $data_string["status"] = $data["status"];
+        if (!empty($data["postParent"]))
+            $data_string["postParent"] = $data["postParent"];
+        if (!empty($data["url"]))
+            $data_string["url"] = $data["url"];
+        if (!empty($data["thumbnailUrl"]))
+            $data_string["thumbnailUrl"] = $data["thumbnailUrl"];
+        if (!empty($data["postType"]))
+            $data_string["postType"] = $data["postType"];
+
+        $data_string = json_encode($data_string);
+        $rezult = $this->patch_execute($data_string, 'domains/'.Configuration::$domenId.'/post/'.$post_id.'/update');
+        if (!empty( $rezult["id"])){
+            return $rezult;
+        }
+        else return false;
+    }
+
+    function delete_post($post_id)
+    {
+        $result = $this->delete_execute(Configuration::$url.'domains/'.Configuration::$domenId.'/post/'.$post_id.'/delete');
+        if (!empty( $result["status"]) && $result["status"]){
             return true;
+        }
+        else return false;
+    }
+
+    function all_post()
+    {
+        $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/all', false);
+        if (!empty( $result["status"])){
+            return $result;
+        }
+        else return false;
+    }
+
+    function publish_post()
+    {
+        $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/publish', false);
+        if (!empty($result["result"])){
+            return $result;
         }
         else return false;
     }
@@ -67,6 +131,34 @@ class Class_methods
         );
         $result = curl_exec($ch);
         return json_decode($result, true);
+    }
+
+    function delete_execute($method)
+    {
+        $url = Configuration::$url.$method;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($result, true);
+    }
+
+    function patch_execute($data, $method)
+    {
+        $url = Configuration::$url.$method;
+        $headers = array('Content-Type: application/json');
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH');
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return json_decode($response, true);
     }
 }
 ?>
