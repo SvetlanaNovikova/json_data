@@ -15,10 +15,11 @@ class Class_methods
     function get_domains($method)
     {
         $result = file_get_contents(Configuration::$url.$method, false);
-        if (!empty( $result["id"])){
+        /*if (!empty( $result["id"])){
             return $result;
         }
-        else return false;
+        else return false;*/
+        return $result;
     }
     /*создание нового домена*/
     function add_domains($data)
@@ -26,10 +27,11 @@ class Class_methods
         $data = array("domainName" => $data["domainName"]);
         $data_string = json_encode($data);
         $rezult = $this->post_execute($data_string, 'domains');
-        if (!empty( $rezult["id"])){
+        /*if (!empty( $rezult["id"])){
             return true;
         }
-        else return false;
+        else return false;*/
+        return $rezult;
     }
 
     /*создание нового поста*/

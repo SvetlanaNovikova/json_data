@@ -33,7 +33,7 @@
             <button class="knopka" select="add-domain">Добавить домен</button>
             <button class="knopka" select="delete-domain">Удалить домен</button>
             <button class="knopka" select="add-post">Добавить пост</button>
-            <button class="knopka" select="delete-post">Удалить пост</button>
+            <button class="knopka"  select="delete-post">Удалить пост</button>
         </div>
         <div class="col-sm-8">
             <div class="form-block add-post">
@@ -77,7 +77,7 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="postType" placeholder="Тип поста" >
                             </div>
-                            <button class="knopka" select="add-domain">Добавить</button>
+                            <button class="btn">Добавить</button>
                         </div>
 
 
@@ -86,19 +86,18 @@
             </div>
             <div class="form-block add-domain">
                 <!-- HTML-форма, оформленная с помощью стилей Bootstrap 4 -->
-                <form method="post" action="#" autocomplete="off">
+                <form method="post" onsubmit="return add_domain()" autocomplete="off">
 
                     <div class="row">
                         <div class="col-md-12">
                             <h2>Добавить домен</h2>
                             <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Введите имя" required>
-
+                            <input type="text" class="form-control" id="domain-name" placeholder="Введите имя" required>
                         </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <button class="knopka" select="add-domain">Добавить</button>
+                                <button class="">Добавить</button>
                             </div>
                         </div>
                     </div>
@@ -132,10 +131,9 @@
 
 </div>
 
-
-<script src="js/bootstrap.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
 <script src="js/main.js"></script>
 <!-- Комментарий -->
 </body>
-</html
+</html>

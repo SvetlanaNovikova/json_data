@@ -13,3 +13,14 @@ $(".all-domains").on("click", function () {
         $('.main-info').html(data);
     })
 });
+
+function add_domain() {
+    if ($("#domain-name")[0].checkValidity()) {
+        $.post(path_to_project + "/view/add-domain.php", {name:$("#domain-name").val()},  function (data) {
+            $('.main-info').html(data);
+            $("#exampleModal").modal('show');
+        })
+    }
+    return false;
+}
+
