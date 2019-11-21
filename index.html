@@ -28,85 +28,125 @@
       </div>
 
   </div>-->
-<div class="container">
+<header class="page-header">
     <div class="row">
+        <div class="col-md-12 menu">
+            <nav class="navbar navbar-expand-md ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample" aria-controls="navbarsExample" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample">
+                    <ul class="navbar-nav">
+                        <li class="nav-item knopka" select="all-domains">
+                            <a class="nav-link all-domains show" href="#">Получить все домены</a>
+                        </li>
+                        <li class="nav-item knopka" select="all-domains">
+                            <a class="nav-link"  href="#">Получить все посты</a>
+                        </li>
+                        <li class="nav-item knopka" select="add-domain">
+                            <a class="nav-link"  href="#">Добавить домен</a>
+                        </li>
+                        <li class="nav-item knopka" select="add-post">
+                            <a class="nav-link"  href="#">Добавить пост</a>
+                        </li>
+                        <li class="nav-item knopka" select="public-post">
+                            <a class="nav-link all-domains show"  href="#">Опубликованные посты</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="row-form row">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+        <div class="form-block add-post">
+            <!-- HTML-форма, оформленная с помощью стилей Bootstrap 4 -->
+            <form method="post" action="#" autocomplete="off">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Добавить пост</h2>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="title" placeholder="Заголовок поста" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="textarea" class="form-control" id="content" placeholder="Контент">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="author" placeholder="Автор поста">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="excerpt" placeholder="Краткая информация о посте" >
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Статус поста <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="#">Публичный</a></li>
+                                <li class="dropdown-item"><a href="#">Частный</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-offset-2 right">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="postParent" placeholder="ID поста родителя" >
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="url" placeholder="Ссылка на пост" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="thumbnailUrl" placeholder="Ссылка на картинку" >
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="postType" placeholder="Тип поста" >
+                        </div>
+                        <div class="form-group">
+                            <button class="">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-block add-domain">
+            <!-- HTML-форма, оформленная с помощью стилей Bootstrap 4 -->
+            <form method="post" onsubmit="return add_domain()" autocomplete="off">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Добавить домен</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="domain-name" placeholder="Введите имя" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <!-- <div class="row">
         <div class="col-sm-4 button-block">
-            <button class="knopka all-domains show" select="all-domains">Получить все домены</button>
+           <button class="knopka all-domains show" select="all-domains">Получить все домены</button>
             <button class="knopka"  select="all-post">Получить все посты</button>
             <button class="knopka" select="add-domain">Добавить домен</button>
             <button class="knopka" select="add-post">Добавить пост</button>
             <button class="knopka" select="public-post">Опубликованные посты</button>
         </div>
         <div class="col-sm-8">
-            <div class="form-block add-post">
-                <!-- HTML-форма, оформленная с помощью стилей Bootstrap 4 -->
-                <form method="post" action="#" autocomplete="off">
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h2>Добавить пост</h2>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="title" placeholder="Заголовок поста" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="textarea" class="form-control" id="content" placeholder="Контент">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="author" placeholder="Автор поста">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="excerpt" placeholder="Краткая информация о посте" >
-                            </div>
-                            <div class="dropdown">
-                            <button class="dropbtn">Статус поста</button>
-                            <div class="dropdown-content">
-                                <a href="#">Публичный</a>
-                                <a href="#">Частный</a>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-2 right">
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="postParent" placeholder="ID поста родителя" >
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="url" placeholder="Ссылка на пост" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="thumbnailUrl" placeholder="Ссылка на картинку" >
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="postType" placeholder="Тип поста" >
-                            </div>
-                            <button class="btn">Добавить</button>
-                        </div>
 
 
-                    </div>
-                </form>
-            </div>
-            <div class="form-block add-domain">
-                <!-- HTML-форма, оформленная с помощью стилей Bootstrap 4 -->
-                <form method="post" onsubmit="return add_domain()" autocomplete="off">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2>Добавить домен</h2>
-                            <div class="form-group">
-                            <input type="text" class="form-control" id="domain-name" placeholder="Введите имя" required>
-                        </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <button class="">Добавить</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- не удалять !!! -->
     <div class="row main-info">
@@ -125,6 +165,7 @@
 </script>
 
 <script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/main.js"></script>
 <!-- Комментарий -->
