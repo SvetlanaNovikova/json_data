@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Dropdown Example</h2>
+    <p>The <strong>show.bs.dropdown</strong> event occurs when the dropdown is about to be shown.</p>
+    <p>The <strong>shown.bs.dropdown</strong> event occurs when the dropdown is fully shown.</p>
+    <p>The <strong>hide.bs.dropdown</strong> event occurs when the dropdown is about to be hidden.</p>
+    <p>The <strong>hidden.bs.dropdown</strong> event occurs when the dropdown is fully hidden.</p>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Toggle this Dropdown
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+    </div><br>
+    <p><strong>Note:</strong> For dropdowns, you should always include the data-toggle="dropdown" attribute. Do not rely solely on the toggle method, as it may not work as expected in all browsers.</p>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.dropdown').on('hide.bs.dropdown', function(e){
+            alert('The dropdown is about to be hidden.');
+        });
+        $('.dropdown').on('hidden.bs.dropdown', function(){
+            alert('The dropdown is now fully hidden.');
+        });
+    });
+</script>
+
+</body>
+</html>

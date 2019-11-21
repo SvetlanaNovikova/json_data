@@ -78,7 +78,9 @@ button.knopka {
 button.knopka:hover {
     background: #800000;
 }
-
+button.dropbtn:hover {
+    background:  #343a40;;
+}
 
 u {padding: 10px;
     margin: 5px;
@@ -163,7 +165,6 @@ button.table_knopka:hover {
 .form-block.show{
     display: block;
 }
-
 .dropbtn {
     background-color: #A52A2A;
     color: white;
@@ -211,3 +212,5 @@ button.table_knopka:hover {
 .dropdown:hover .dropbtn {
     background-color: #800000;
 }
+
+

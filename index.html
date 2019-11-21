@@ -7,6 +7,8 @@
     <link href="css/bootstrap-reboot.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -30,10 +32,10 @@
     <div class="row">
         <div class="col-sm-4 button-block">
             <button class="knopka all-domains show" select="all-domains">Получить все домены</button>
+            <button class="knopka"  select="all-post">Получить все посты</button>
             <button class="knopka" select="add-domain">Добавить домен</button>
-            <button class="knopka" select="delete-domain">Удалить домен</button>
             <button class="knopka" select="add-post">Добавить пост</button>
-            <button class="knopka"  select="delete-post">Удалить пост</button>
+            <button class="knopka" select="public-post">Опубликованные посты</button>
         </div>
         <div class="col-sm-8">
             <div class="form-block add-post">
@@ -56,12 +58,12 @@
                                 <input type="text" class="form-control" id="excerpt" placeholder="Краткая информация о посте" >
                             </div>
                             <div class="dropdown">
-                                    <button class="dropbtn">Статус поста</button>
-                                    <div class="dropdown-content">
-                                        <a href="#">Публичный</a>
-                                        <a href="#">Частный</a>
-                                    </div>
+                            <button class="dropbtn">Статус поста</button>
+                            <div class="dropdown-content">
+                                <a href="#">Публичный</a>
+                                <a href="#">Частный</a>
                             </div>
+                        </div>
                         </div>
                         <div class="col-md-6 col-md-offset-2 right">
 
@@ -130,6 +132,16 @@
     </div>
 
 </div>
+<script>
+    $(document).ready(function(){
+        $('.dropdown-content').on('hide.bs.dropdown', function(e){
+            alert('The dropdown is about to be hidden.');
+        });
+        $('.dropdown-content').on('hidden.bs.dropdown', function(){
+            alert('The dropdown is now fully hidden.');
+        });
+    });
+</script>
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
