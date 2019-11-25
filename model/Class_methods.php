@@ -106,10 +106,11 @@ class Class_methods
     function all_post()
     {
         $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/all', false);
-        if (!empty( $result["status"])){
+        /*if (!empty( $result["status"])){
             return $result;
         }
-        else return false;
+        else return false;*/
+        return $result;
     }
 
     function publish_post()

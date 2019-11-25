@@ -37,3 +37,9 @@ function modal_show() {
     }
 }
 
+$(".all-posts").on("click", function () {
+    $.get( path_to_project+"/view/all-posts.php", function( data ) {
+        $('.main-info').html(data);
+        //modal_show();
+    })
+});

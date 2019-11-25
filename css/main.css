@@ -269,12 +269,36 @@ a.btn.btn-primary.dropdown-toggle{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.block-post-img img {
+    width: 100%;
+    height: 200px;
+}
+.main-info .row {
+    margin-top: 20px;
+}
+.block-action {
+    display: flex;
+}
+.block-update, .block-delete {
+    width: 50%;
+}
+.block-title {
+    height: max-content;
+    text-align: center;
+    font-weight: bold;
+}
+.block-content {
+    height: 200px;
+}
 
 /* Изменить цвет фона выпадающего кнопка при отображении выпадающего списка */
 .dropdown:hover .dropbtn {
     background-color: #800000;
 }
-
+.block-post {
+    border: 1px solid;
+    min-height: 250px;
+}
 @media (max-width: 576px) {
     .col-6 {
         padding: 2px;
