@@ -14,10 +14,27 @@ $(".all-domains").on("click", function () {
         modal_show();
     })
 });
+var path_to_project = '/json_data';/*Лизино*/
+$(".all-posts").on("click", function () {
+    $.get( path_to_project+"/view/all-posts.php", function( data ) {
+        $('.main-info').html(data);
+        modal_show();
+    })
+});
 
 function add_domain() {
     if ($("#domain-name")[0].checkValidity()) {
         $.post(path_to_project + "/view/add-domain.php", {name:$("#domain-name").val()},  function (data) {
+            $('.main-info').html(data);
+            $("#exampleModal").modal('show');
+        })
+    }
+    return false;
+}
+
+function add_post() {/*Лизино*/
+    if ($("#domain-name")[0].checkValidity()) {
+        $.post(path_to_project + "/view/add-post.php", {name:$("#domain-name").val()},  function (data) {
             $('.main-info').html(data);
             $("#exampleModal").modal('show');
         })

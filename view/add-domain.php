@@ -3,7 +3,7 @@
 include '../model/Class_methods.php';
 
 $model = new Class_methods();
-$data = [];
+$data = array();
 $data["domainName"] = $_POST["name"];
 
 $domains = $model->add_domains($data);

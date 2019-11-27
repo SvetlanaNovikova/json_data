@@ -66,7 +66,7 @@ class Class_methods
 
     function update_post($data, $post_id)
     {
-        $data_string = [];
+        $data_string = array();
         if (!empty($data["title"]))
             $data_string["title"] = $data["title"];
         if (!empty($data["content"]))
