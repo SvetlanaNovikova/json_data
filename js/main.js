@@ -21,7 +21,7 @@ $(".all-posts").on("click", function () {
         modal_show();
     })
 });
-
+var status1="Частный";
 function add_domain() {
     if ($("#domain-name")[0].checkValidity()) {
         $.post(path_to_project + "/view/add-domain.php", {name:$("#domain-name").val()},  function (data) {
@@ -29,12 +29,18 @@ function add_domain() {
             $("#exampleModal").modal('show');
         })
     }
-    return false;
+    return falsse;
 }
 
-function add_post() {/*Лизино*/
-    if ($("#title")[0].checkValidity()) {
-        $.post(path_to_project + "/view/add-post.php", {title:$("#title").val(), postParent : $("#postParent").val()},  function (data) {
+function add_post() {
+    if (($("#title")[0].checkValidity())&& ($("#content")[0].checkValidity())/*&&($("#author")[0].checkValidity())
+    &&($("#excerpt")[0].checkValidity())&&($("#status")[0].checkValidity())&&($("#postParent")[0].checkValidity())
+    &&($("#url")[0].checkValidity())&&($("#thumbnailUrl")[0].checkValidity())&&($("#postType")[0].checkValidity())
+    */){
+
+        $.post(path_to_project + "/view/add-post.php", {title:$("#title").val(),content:$("#content").val(),
+            author:$("#author").val(),excerpt:$("#excerpt").val(),status:status1,postParent:$("#postParent").val(),
+            url:$("#url").val(),thumbnailUrl:$("#thumbnailUrl").val(),postType:$("#postType").val()},  function (data) {
             $('.main-info').html(data);
             $("#exampleModal").modal('show');
         })
@@ -44,7 +50,9 @@ function add_post() {/*Лизино*/
 
 $(".dropdown-menu li a").click(function(){
     var selText = $(this).text();
+    status1=$(this).text();
     $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+
 });
 
 function modal_show() {
