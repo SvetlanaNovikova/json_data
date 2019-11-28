@@ -33,8 +33,8 @@ function add_domain() {
 }
 
 function add_post() {/*Лизино*/
-    if ($("#domain-name")[0].checkValidity()) {
-        $.post(path_to_project + "/view/add-post.php", {name:$("#domain-name").val()},  function (data) {
+    if ($("#title")[0].checkValidity()) {
+        $.post(path_to_project + "/view/add-post.php", {title:$("#title").val(), postParent : $("#postParent").val()},  function (data) {
             $('.main-info').html(data);
             $("#exampleModal").modal('show');
         })
