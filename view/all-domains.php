@@ -29,7 +29,7 @@ if (empty($domains)){
     exit;
 }
 
-$table = '<table width=90% height=70% border=1>';
+$table = '<table class="table table-hover">';
 foreach ($domains as $domain) {
     $table .= '<tr>'.'<td>' . $domain->id.'</td>'.'<td>' . $domain->domainName .'</td>'.'</tr>';
 }
