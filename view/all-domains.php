@@ -31,10 +31,10 @@ if (empty($domains)){
 
 $table = '<table class="table table-hover table-bordered table-striped">';
 //$table .='<font color="#808080">'.Текст серого цвета.'</font>';
-$table .='<font face="algerian">'.'<font color="#008B8B">'.'<h2>'."All Domains".'</h2>'.'</font>'.'</font>';
-$table .= '<tr>'.'<th>'.'<font face="arial black">'.'<font color="#2E8B57">'."ID".'</font>'.'</font>'.'</th>'.'<th>'.'<font face="arial black">'.'<font color="#2E8B57">'."Domains".'</font>'.'</font>'.'</th>'.'</tr>';
+$table .='<h2>'.'<div style="text-align: center;">'."Все Домены".'</div>'.'</h2>';
+$table .= '<tr>'.'<th>'."ID".'</th>'.'<th>'."Домены".'</th>'.'</tr>';
 foreach ($domains as $domain) {
-    $table .= '<tr>'.'<td>' .'<font face="comic sans ms">'. $domain->id.'</font>'.'</td>'.'<td>' .'<font face="comic sans ms">'. $domain->domainName .'</font>'.'</td>'.'</tr>';
+    $table .= '<tr>'.'<td>'. $domain->id.'</td>'.'<td>' . $domain->domainName .'</td>'.'</tr>';
 }
 $table .= '</table>';
 echo $table;
