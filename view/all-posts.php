@@ -46,7 +46,7 @@ foreach ($posts["result"]["data"] as $key => $post) {
                  <div class="block-content">'. $content .'</div>
                 <div class="block-action"> 
                     <div class="block-update"><button type="button">Изменить</button></div>
-                    <div class="block-delete"><button type="button">Удалить</button></div>
+                    <div class="block-delete"><button class="delete-post" select="'.$post["id"].'" type="button">Удалить</button></div>
                 </div>
             </div>
           </div>';

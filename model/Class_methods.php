@@ -98,10 +98,7 @@ class Class_methods
     function delete_post($post_id)
     {
         $result = $this->delete_execute(Configuration::$url.'domains/'.Configuration::$domenId.'/post/'.$post_id.'/delete');
-        if (!empty( $result["status"]) && $result["status"]){
-            return true;
-        }
-        else return false;
+        return $result;
     }
 
     function all_post()
@@ -134,14 +131,18 @@ class Class_methods
         return json_decode($result, true);
     }
 
-    function delete_execute($method)
+    function delete_execute($method, $json = '')
     {
         $url = Configuration::$url.$method;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($json))
+        );
         $result = curl_exec($ch);
         curl_close($ch);
         return json_decode($result, true);

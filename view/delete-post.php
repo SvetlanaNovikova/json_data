@@ -1,16 +1,14 @@
-<script src="js/main.js"></script>
 <?php
 include '../model/Class_methods.php';
 
 $model = new Class_methods();
-$data = array();
-$data["post_id"] = $_POST["post_id"];
-$posts = $model->delete_post($data);
+$posts = $model->delete_post($_POST["post_id"]);
 $str = "";
-if (empty($posts["title"])){
-    $str .= "Пост успешно удален<br>  " . $posts["title"];
+var_dump($posts);
+if (empty($posts["status"])){
+    $str .= "Возникла ошибка при удалении поста:<br> " . $posts["error"]["message"];
 }
-else $str .= "Возникла ошибка при удалении поста:<br> " . $posts["error"]["message"];
+else  $str .= "Пост успешно удален<br>  " . $posts["title"];
 
 echo '
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
