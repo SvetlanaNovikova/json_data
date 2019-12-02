@@ -68,3 +68,10 @@ $(".all-posts").on("click", function () {
         //modal_show();
     })
 });
+
+$(".publish-posts").on("click", function () {
+    $.get( path_to_project+"/view/publish-posts.php", function( data ) {
+        $('.main-info').html(data);
+        modal_show();
+    })
+});

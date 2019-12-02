@@ -117,10 +117,7 @@ class Class_methods
     function publish_post()
     {
         $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/publish', false);
-        if (!empty($result["result"])){
-            return $result;
-        }
-        else return false;
+        return $result;
     }
 
     function post_execute($data, $method)
