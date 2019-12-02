@@ -4,11 +4,10 @@ include '../model/Class_methods.php';
 $model = new Class_methods();
 $posts = $model->delete_post($_POST["post_id"]);
 $str = "";
-var_dump($posts);
 if (empty($posts["status"])){
     $str .= "Возникла ошибка при удалении поста:<br> " . $posts["error"]["message"];
 }
-else  $str .= "Пост успешно удален<br>  " . $posts["title"];
+else  $str .= "Пост успешно удален";
 
 echo '
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
