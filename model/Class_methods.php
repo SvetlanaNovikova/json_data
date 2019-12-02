@@ -49,10 +49,11 @@ class Class_methods
 
         $data_string = json_encode($data);
         $rezult = $this->post_execute($data_string, 'domains/'.Configuration::$domenId.'/post');
-        if (!empty( $rezult["id"])){
+        /*if (!empty( $rezult["id"])){
             return $rezult;
         }
-        else return false;
+        else return false;*/
+        return $rezult;
     }
 
     function get_post($post_id)

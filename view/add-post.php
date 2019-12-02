@@ -9,12 +9,11 @@ $data["title"] = $_POST["title"];
 $data["content"]= $_POST["content"];
 $data["author"]= $_POST["author"];
 $data["excerpt"]= $_POST["excerpt"];
-$data["status"]= $_POST["status"];
-$data["postParent"]= $_POST["postParent"];
+$data["status"]= strval($_POST["status"]);
+$data["postParent"]= intval($_POST["postParent"]);
 $data["url"]= $_POST["url"];
 $data["thumbnailUrl"]= $_POST["thumbnailUrl"];
 $data["postType"]= $_POST["postType"];
-
 
 $posts = $model->add_post($data);
 $str = "";
