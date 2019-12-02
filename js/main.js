@@ -68,3 +68,12 @@ $(".all-posts").on("click", function () {
         //modal_show();
     })
 });
+
+$(".delete-post").on("click", function () {
+    if ($("#delete-post")[0].checkValidity()) {
+        $.post(path_to_project + "/view/delete_post.php", {name:$("#delete-post").val()},  function (data) {
+            $('.main-info').html(data);
+            $("#exampleModal").modal('show');
+        })
+    }
+});
