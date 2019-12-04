@@ -1,8 +1,9 @@
 <?php
 include '../model/Class_methods.php';
 
+$step = (!empty($_POST["step"])) ? $_POST["step"] : '';
 $model = new Class_methods();
-$posts = $model->all_post();
+$posts = $model->all_post($step);
 $posts = json_decode($posts, true);
 
 if (empty($posts)){
@@ -28,7 +29,16 @@ if (empty($posts)){
 ';
     exit;
 }
-
+$total = $posts["result"]["total"];
+$count = 0;
+echo '<ul class="pagination">';
+while ($count <= $total) {
+    if ($count == intval($posts["result"]["skip"]))
+        echo '<li class="page-item active post-step" select="'.($count / 5) .'"><a class="page-link">'.($count / 5 + 1) .'</a></li>';
+    else echo '<li class="page-item post-step" select="'.($count / 5) .'"><a class="page-link">'.($count / 5 + 1) .'</a></li>';
+    $count += 5;
+}
+echo '</ul>';
 
 foreach ($posts["result"]["data"] as $key => $post) {
     if ($key % 3 == 0) {

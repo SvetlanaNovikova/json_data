@@ -20,6 +20,7 @@ $(".all-posts").on("click", function () {
         $('.main-info').html(data);
         modal_show();
         delete_post();
+        step_post();
     })
 });
 var status1="Частный";
@@ -67,6 +68,8 @@ $(".publish-posts").on("click", function () {
     $.get( path_to_project+"/view/publish-posts.php", function( data ) {
         $('.main-info').html(data);
         modal_show();
+        step_publish();
+        delete_post();
     })
 });
 
@@ -75,6 +78,28 @@ function delete_post() {
         $.post(path_to_project + "/view/delete-post.php", {post_id: $(this).attr("select")}, function (data) {
             $('.main-info').html(data);
             $("#exampleModal").modal('show');
+        })
+    });
+}
+
+function step_post() {
+    $(".post-step").on("click", function () {
+        $.post(path_to_project + "/view/all-posts.php", {step: $(this).attr("select")}, function (data) {
+            $('.main-info').html(data);
+            modal_show();
+            delete_post();
+            step_post();
+        })
+    });
+}
+
+function step_publish() {
+    $(".publish-step").on("click", function () {
+        $.post(path_to_project + "/view/publish-posts.php", {step: $(this).attr("select")}, function (data) {
+            $('.main-info').html(data);
+            modal_show();
+            delete_post();
+            step_publish();
         })
     });
 }

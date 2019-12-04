@@ -101,9 +101,10 @@ class Class_methods
         return $result;
     }
 
-    function all_post()
+    function all_post($filter = '')
     {
-        $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/all', false);
+        $filter = (!empty($filter)) ? '?filter[skip]='.($filter*5) : $filter;
+        $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/all'.$filter, false);
         /*if (!empty( $result["status"])){
             return $result;
         }
@@ -111,9 +112,10 @@ class Class_methods
         return $result;
     }
 
-    function publish_post()
+    function publish_post($filter = '')
     {
-        $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/publish', false);
+        $filter = (!empty($filter)) ? '?filter[skip]='.($filter*5) : $filter;
+        $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/publish'.$filter, false);
         return $result;
     }
 
