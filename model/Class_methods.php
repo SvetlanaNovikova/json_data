@@ -59,10 +59,7 @@ class Class_methods
     function get_post($post_id)
     {
         $result = file_get_contents(Configuration::$url.'domains/'.Configuration::$domenId.'/post/'.$post_id, false);
-        if (!empty( $result["id"])){
-            return $result;
-        }
-        else return false;
+        return $result;
     }
 
     function update_post($data, $post_id)
@@ -89,10 +86,7 @@ class Class_methods
 
         $data_string = json_encode($data_string);
         $rezult = $this->patch_execute($data_string, 'domains/'.Configuration::$domenId.'/post/'.$post_id.'/update');
-        if (!empty( $rezult["id"])){
-            return $rezult;
-        }
-        else return false;
+        return $rezult;
     }
 
     function delete_post($post_id)

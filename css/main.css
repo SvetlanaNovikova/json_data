@@ -299,6 +299,9 @@ a.btn.btn-primary.dropdown-toggle{
     border: 1px solid;
     min-height: 250px;
 }
+.modal-header .close {
+    width: 55px;
+}
 @media (max-width: 576px) {
     .col-6 {
         padding: 2px;

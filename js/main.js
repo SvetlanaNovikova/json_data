@@ -21,6 +21,7 @@ $(".all-posts").on("click", function () {
         modal_show();
         delete_post();
         step_post();
+        update_post();
     })
 });
 var status1="Частный";
@@ -70,6 +71,7 @@ $(".publish-posts").on("click", function () {
         modal_show();
         step_publish();
         delete_post();
+        update_post();
     })
 });
 
@@ -89,6 +91,7 @@ function step_post() {
             modal_show();
             delete_post();
             step_post();
+            update_post();
         })
     });
 }
@@ -100,6 +103,36 @@ function step_publish() {
             modal_show();
             delete_post();
             step_publish();
+            update_post();
         })
     });
+}
+
+function update_post() {
+    $(".update-post").on("click", function () {
+        $.post(path_to_project + "/view/get-post.php", {id: $(this).attr("select")}, function (data) {
+           // $('.main-info').html(data);
+            modal_show();
+            $(".form-block.edit-post").remove();
+            $(".form-block.show").removeClass("show");
+            $(".right-block").append(data);
+        })
+    });
+}
+
+function edit_post() {
+    if (($(".edit-post #title")[0].checkValidity())&& ($(".edit-post #content")[0].checkValidity())/*&&($("#author")[0].checkValidity())
+    &&($("#excerpt")[0].checkValidity())&&($("#status")[0].checkValidity())&&($("#postParent")[0].checkValidity())
+    &&($("#url")[0].checkValidity())&&($("#thumbnailUrl")[0].checkValidity())&&($("#postType")[0].checkValidity())
+    */){
+        var e = $(".edit-post #status");
+        $.post(path_to_project + "/view/update-post.php", {title:$(".edit-post #title").val(),content:$(".edit-post #content").val(),
+            author:$(".edit-post #author").val(),excerpt:$(".edit-post #excerpt").val(),status:e.val(),postParent:$(".edit-post #postParent").val(),
+            url:$(".edit-post #url").val(),thumbnailUrl:$(".edit-post #thumbnailUrl").val(),postType:$(".edit-post #postType").val(),
+            id: $(".edit-post button").attr("select")},  function (data) {
+            $('.main-info').html(data);
+            $("#exampleModal").modal('show');
+        })
+    }
+    return false;
 }
