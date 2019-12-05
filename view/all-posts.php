@@ -41,29 +41,25 @@ while ($count <= $total) {
 echo '</ul>';
 
 foreach ($posts["result"]["data"] as $key => $post) {
-    if ($key % 3 == 0) {
-        echo '<div class="row">';
-    }
-    if ( strlen($post["content"]) > 300) {
-        $content = mb_substr($post["content"], 0, 297, 'UTF-8'); //140 это кол. знаков
-        $content .= '...';
-    }
-    else $content = $post["content"];
-    echo '<div class="col-md-4 "> 
-            <div class="block-post">
-                <div class="block-post-img"><img src="'. $post["thumbnailUrl"] .'"></div>
-                <div class="block-title">'. $post["title"] .'</div>
-                 <div class="block-content">'. $content .'</div>
+    echo '<div class="row block-post">';
+
+    echo '<div class="col-md-5">
+            <a target="_blank" href="'. $post["url"] .'">
+            <div class="block-post-img"><img src="'. $post["thumbnailUrl"] .'" title="'. $post["title"] .'" alt="'. $post["title"] .'"></div>
+            </a>
+          </div> ';
+
+    echo '<div class="col-md-7"> 
+                <div class="block-title text-center"><h3>'. $post["title"] .'</h3></div>
+                 <div class="block-content">'. $post["content"] .'</div>
                 <div class="block-action"> 
                     <div class="block-update"><button type="button" class="update-post" select="'.$post["id"].'">Изменить</button></div>
                     <div class="block-delete"><button class="delete-post" select="'.$post["id"].'" type="button">Удалить</button></div>
                 </div>
-            </div>
+            
           </div>';
 
-    if (($key+1) % 3 == 0) {
         echo '</div>';
-    }
 }
 
 

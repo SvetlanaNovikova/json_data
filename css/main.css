@@ -271,13 +271,14 @@ a.btn.btn-primary.dropdown-toggle{
 }
 .block-post-img img {
     width: 100%;
-    height: 200px;
+    height: auto;
 }
 .main-info .row {
     margin-top: 20px;
 }
 .block-action {
     display: flex;
+    margin-top: 12px;
 }
 .block-update, .block-delete {
     width: 50%;
@@ -287,8 +288,11 @@ a.btn.btn-primary.dropdown-toggle{
     text-align: center;
     font-weight: bold;
 }
-.block-content {
+/*.block-content {
     height: 200px;
+}*/
+ul.pagination {
+    margin-top: 18px;
 }
 
 /* Изменить цвет фона выпадающего кнопка при отображении выпадающего списка */
@@ -297,10 +301,16 @@ a.btn.btn-primary.dropdown-toggle{
 }
 .block-post {
     border: 1px solid;
-    min-height: 250px;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 .modal-header .close {
     width: 55px;
+}
+.block-post .col-md-5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 @media (max-width: 576px) {
     .col-6 {
